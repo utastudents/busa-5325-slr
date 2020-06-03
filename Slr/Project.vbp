@@ -1,0 +1,58 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\WINDOWS\SYSTEM32\STDOLE2.TLB#OLE Automation
+Object={00000000-0000-0000-0000-000000000000}##0; TABCTL32.OCX
+Module=mdlSetDefault; mdlSetDefault.bas
+Form=frmAssumptions.frm
+Form=frmChange.frm
+Form=frmChangeCorr.frm
+Form=frmChangeEstPred.frm
+Form=frmChangeHypothesizedValue.frm
+Form=frmChangeLSLine.frm
+Form=frmChangeNames.frm
+Form=frmChangeQuantiles.frm
+Form=frmChangeSlopeEstimates.frm
+Form=frmChangeUnits.frm
+Form=frmChangeXg.frm
+Form=frmEstimationPrediction.frm
+Form=frmQuestions.frm
+Form=frmSlope.frm
+Form=frmStatistics.frm
+Form=Form1.frm
+Form=frmIntro.frm
+Startup="Sub Main"
+HelpFile=""
+ExeName32="SLR.exe"
+Name="Project1"
+Title="SLR"
+VersionCompanyName="The University of Texas at Arlington"
+MajorVer=1
+MinorVer=00
+RevisionVer=0
+Command32 = ""
+HelpContextID = "0"
+CompatibleMode = "0"
+AutoIncrementVer = 0
+ServerSupportFiles = 0
+CompilationType = 0
+OptimizationType = 0
+FavorPentiumPro(tm) = 0
+CodeViewDebugInfo = 0
+NoAliasing = 0
+BoundsCheck = 0
+OverflowCheck = -1
+FlPointCheck = 0
+FDIVCheck = 0
+UnroundedFP = 0
+StartMode = 0
+Unattended = 0
+Retained = 0
+ThreadPerObject = 0
+MaxNumberOfThreads = 1
+
+[MS Transaction Server]
+AutoRefresh = 1
+
+[VB Decompiler]
+Build = 11.4.7400.14572
+Date = 6/2/2020
+
