@@ -1,0 +1,156 @@
+<html>
+<head>
+
+</head>
+
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<h1 align="center">Confidence Interval for Population Proportion Exercise </h1>
+<br>
+ <%   
+   Ans4=request.form("Conclusion")
+  
+   AnsZ=session("AnsZ")
+   AnsMoe=session("AnsMOE")
+  
+
+   x =   Session("x")	  
+   mea = Session("mea")	
+   obsr = Session("obsr")	
+   mu = Session("mu")	
+   sig = Session("sig")	
+   n = Session("n")
+   SE = Session("SE")	
+   Z = Session("Z")
+   
+   MOE = session("moe")
+   P=Session("P")
+   Newlist=Session("NewList")
+   NewCorrections=Session("NewCorrections")
+   
+   CL = Session("CL")	
+   
+   UpperB=Session("UpperB") 
+   LowerB=Session("LowerB")
+   paragraph= Session("paragraph")
+
+
+    name=session("Name")
+   
+
+   NumAttempts = session("NumAttempts")
+   NumAttCon = session("NumAttCon")
+   NumAttCon = numattCon+1
+   session("NumattCon") = numattCon
+
+   prhtml("<p align=" & chr(34) & "center" & chr(34) & "> Number of attempts at calculation= " & numattempts & "<p>")
+   prhtml("<p align=" & chr(34) & "center" & chr(34) & "> Number of attempts at conclusion= " & numattcon & "<p>")
+    sub PrHtml(strHtml)
+       response.write(strhtml)
+    end sub
+   
+   %>
+   <p align="center"> <b><%response.write("Your name is: " & name)%></b> </p>
+   <table align="center" border="1" width="600">
+     <tr>
+       <td align="left" style="word-wrap: break-word"> 
+         <%response.write(paragraph)%>  <br>
+       </td>
+     </tr>
+     </table>	
+  
+   <br>
+
+      
+   <%
+    Prhtml("<table align=" & chr(34) & "center" & chr(34) & "><tr><td>")
+
+    prhtml("<br>In case of an error, if you are using Internet Explorer, then " & _
+              "go Back to the previous page <br> and try again. The program will " & _
+              "keep track of the number of attempts.<br><br>")
+ 
+       prhtml("</td></tr><tr><td>")  
+
+    Prhtml("<p align=" & chr(34) & "center" & chr(34) & ">Identify: This is asking you to estimate a population mean.</p>")
+    Prhtml("<p align=" & chr(34) & "center" & chr(34) & ">The sample standard error: = " & se & "</p>")
+      
+
+  'Question 1
+    PrHtml("Question 1: ") 
+      if isnumeric(ansz) = true then
+    
+        If abs(ansz-z)<=0.01  then
+         
+           PrHtml("Correct: The z table value is " & z & "<br>")
+           
+         Else
+            Prhtml("Incorrect: Your answer of " & ansz & " is wrong. <br>")
+         end if
+      elseif len(ansz) =0 then
+         prhtml("You did not enter an answer to Question 1. <br>")
+      else
+            Prhtml("Your answer of " & ansz & " is not a number.<br>")
+      end if
+     prhtml("<br></td></tr><tr><td>")
+
+    PrHtml("Question 2: ") 
+    'prhtml("moe=" & moe & ", AnsMOE = " & ansmoe)
+      if isnumeric(ansMOE) = true then
+    
+        If abs(ansMoe-moe)<.02 then
+         
+           PrHtml("Correct: " & cl*100 & "% of the time, the largest error you would expect when using your sample"  & _
+                   " <br> proportion to estimate your population proportion is " & MOE & ".<br>")
+           
+         Else
+            Prhtml("Incorrect: Your answer of " & ansmoe & " is wrong. <br>")
+         end if
+      elseif len(ansmoe) =0 then
+         prhtml("You did not enter an answer to Question 2. <br> ")
+      else
+            Prhtml("Your answer of " & ansmoe & " is not a number.<br>")
+      end if
+     prhtml("<br></td></tr><tr><td>")
+    
+     PrHtml("Question 3a: Lower Value: ") 
+      
+          
+           Question3a ="Correct"
+           PrHtml("Correct: " & round(lowerb,2) & " is the correct lower bound. <br>")
+  
+    
+     
+     PrHtml("Question 3b: Upper Value: ") 
+
+          
+           Question3b = "Correct"
+           PrHtml("Correct: " & round(upperb,2) & " is the correct upper bound. <br>")
+
+     prhtml("<br></td></tr><tr><td>")
+
+       Prhtml("<b>Followup question: </b> <br>")
+       
+       if ans4<=5 then 
+          PrHtml("You chose " & newlist(ans4) & "<br>")
+          Prhtml(NewCorrections(ans4))
+        else
+           Prhtml("You did not choose one of the conclusions.")
+        end if
+       
+     prhtml("</td></tr></table>")
+
+   
+   
+    function ChkAns(a,b)
+      if abs(a-b) < 0.0015 then
+        chkans=1
+      else
+        chkans=0
+      end if
+    end function
+    %>
+    <p align = "center"> Click <a href="zConfIntForPiQues.asp">here</a> for a new question </p>
+</body>
+
+</html>
